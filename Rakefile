@@ -172,7 +172,7 @@ namespace :install do
   task :macvim do
     step 'MacVim'
     unless app? 'MacVim'
-      brew_cask_install 'macvim'
+      brew_install 'macvim'
     end
 
     bin_dir = File.expand_path('~/bin')
@@ -190,7 +190,7 @@ namespace :install do
       File.open(bin_vim, 'w', 0744) do |io|
         io << <<-SHELL
 #!/bin/bash
-exec /Applications/MacVim.app/Contents/MacOS/Vim "$@"
+exec /usr/bin/Vim "$@"
         SHELL
       end
     end
